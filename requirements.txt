@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+pydantic
+python-dotenv
+httpx
+tenacity
+python-multipart
+jinja2
+aiofiles
