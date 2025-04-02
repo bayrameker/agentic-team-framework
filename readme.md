@@ -1,38 +1,38 @@
 # Agentic Teams
 
-Çoklu-Ajan Takım Yönetim Sistemi - LLM tabanlı ajanların takımlar halinde birlikte çalışmasını sağlayan çerçeve.
+Multi-Agent Team Management System - A framework enabling LLM-based agents to work together in teams.
 
-## Genel Bakış
+## Overview
 
-Agentic Teams, farklı LLM modellerinin çoklu-ajan olarak bir takımda birlikte çalışmasını sağlayan bir sistemdir. Farklı rollerdeki ajanlar, görevleri parçalara ayırabilir, işbirliği yapabilir ve karmaşık problemleri çözebilir.
+Agentic Teams is a system that enables different LLM models to work together as multi-agents within a team. Agents in different roles can break down tasks, collaborate, and solve complex problems.
 
-## Özellikler
+## Features
 
-- Farklı LLM modellerini kullanan ajanlar oluşturma
-- Ekipler halinde ajanları organize etme
-- Görevleri alt görevlere bölme ve uygun ajanlara atama
-- Farklı yeteneklere sahip modelleri kullanma
-- Geri bildirim ile görevleri yineleme
+- Create agents using different LLM models
+- Organize agents into teams
+- Break down tasks into subtasks and assign to appropriate agents
+- Utilize models with different capabilities
+- Iterate on tasks with feedback
 
-## Sistem Gereksinimleri
+## System Requirements
 
 - Python 3.8+
-- [Ollama](https://ollama.com/) kurulu ve çalışır durumda
-- İstenen LLM modelleri Ollama'ya yüklenmiş (llama3, mistral, mixtral, gemma, phi3 vb.)
+- [Ollama](https://ollama.com/) installed and running
+- Required LLM models loaded into Ollama (llama3, mistral, mixtral, gemma, phi3, etc.)
 
-## Kurulum
+## Installation
 
-1. Gereksinimleri yükleyin:
+1. Install requirements:
 ```bash
 pip install -r requirements.txt
 ```
 
-2. Ollama'yı kurun ve çalıştırın:
+2. Install and run Ollama:
 ```bash
-# Ollama servisini başlatın
+# Start the Ollama service
 ollama serve
 
-# İhtiyaç duyulan modelleri yükleyin
+# Pull required models
 ollama pull llama3
 ollama pull mistral
 ollama pull mixtral
@@ -40,67 +40,67 @@ ollama pull phi3
 ollama pull gemma
 ```
 
-3. Çevre değişkenlerini ayarlayın:
+3. Set up environment variables:
 ```bash
 cp .env.example .env
-# .env dosyasını düzenleyin (ihtiyaca göre)
+# Edit .env file as needed
 ```
 
-## Kullanım
+## Usage
 
-### Örnek Uygulamayı Çalıştırma
+### Running the Example Application
 
 ```bash
 python example.py
 ```
 
-Bu örnek uygulama şunları gerçekleştirir:
-1. Ollama modellerini kontrol eder
-2. Bir yazılım geliştirme takımı oluşturur
-3. Takıma farklı rollerle ajanlar ekler
-4. Bir görev oluşturur ve alt görevlere böler
-5. Görevi takıma dağıtır ve sonuçları gösterir
-6. Geri bildirim ile çözümü iyileştirir
+This example application:
+1. Checks Ollama models
+2. Creates a software development team
+3. Adds agents with different roles to the team
+4. Creates a task and breaks it down into subtasks
+5. Distributes the task to the team and shows results
+6. Improves the solution with feedback
 
-### API Sunucusunu Başlatma
+### Starting the API Server
 
 ```bash
 python app.py
 ```
 
-API sunucusu aşağıdaki adreste çalışacaktır:
+The API server will be available at:
 - API: http://localhost:8000/api
-- Dokümantasyon: http://localhost:8000/api/docs
+- Documentation: http://localhost:8000/api/docs
 - Web UI: http://localhost:8000
 
-## API Endpoint'leri
+## API Endpoints
 
-- `GET /api/models`: Mevcut modelleri listeler
-- `GET /api/model/{model_name}/capabilities`: Model yeteneklerini döndürür
-- `GET /api/teams`: Tüm takımları listeler
-- `GET /api/teams/{team_id}`: Belirli bir takımın detaylarını döndürür
-- `POST /api/teams`: Yeni bir takım oluşturur
-- `POST /api/teams/{team_id}/agents`: Takıma yeni bir ajan ekler
-- `GET /api/tasks`: Tüm görevleri listeler
-- `GET /api/tasks/{task_id}`: Belirli bir görevin detaylarını döndürür
-- `POST /api/tasks`: Yeni bir görev oluşturur
-- `POST /api/tasks/{task_id}/execute`: Görevi yürütür
-- `POST /api/tasks/{task_id}/iterate`: Görevi geribildirime göre yineler
+- `GET /api/models`: Lists available models
+- `GET /api/model/{model_name}/capabilities`: Returns model capabilities
+- `GET /api/teams`: Lists all teams
+- `GET /api/teams/{team_id}`: Returns details of a specific team
+- `POST /api/teams`: Creates a new team
+- `POST /api/teams/{team_id}/agents`: Adds a new agent to a team
+- `GET /api/tasks`: Lists all tasks
+- `GET /api/tasks/{task_id}`: Returns details of a specific task
+- `POST /api/tasks`: Creates a new task
+- `POST /api/tasks/{task_id}/execute`: Executes a task
+- `POST /api/tasks/{task_id}/iterate`: Iterates on a task based on feedback
 
-## Özelleştirme
+## Customization
 
-- `src/agents/agent.py`: Ajan sınıfını ve davranışlarını tanımlar
-- `src/models/ollama.py`: Ollama API adaptörü
-- `src/models/team.py`: Takım ve görev modelleri
-- `src/teams/team_manager.py`: Takım yönetimi ve görev dağıtımı
+- `src/agents/agent.py`: Defines agent class and behaviors
+- `src/models/ollama.py`: Ollama API adapter
+- `src/models/team.py`: Team and task models
+- `src/teams/team_manager.py`: Team management and task distribution
 
-## Lisans
+## License
 
 MIT
 
-## İletişim
+## Contact
 
-GitHub üzerinden issue açarak veya pull request göndererek katkıda bulunabilirsiniz.
+Contribute by opening an issue or sending a pull request on GitHub.
 
 
 
